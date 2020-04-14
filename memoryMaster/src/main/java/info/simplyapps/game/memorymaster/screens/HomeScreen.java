@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import java.util.Properties;
 
-import info.simplyapps.appengine.UpdateCheck;
 import info.simplyapps.game.memorymaster.Constants;
 import info.simplyapps.game.memorymaster.Constants.RenderMode;
 import info.simplyapps.game.memorymaster.R;
@@ -17,7 +16,6 @@ import info.simplyapps.game.memorymaster.rendering.LoadingRenderer;
 import info.simplyapps.game.memorymaster.rendering.OptionRenderer;
 import info.simplyapps.game.memorymaster.rendering.StatisticRenderer;
 import info.simplyapps.game.memorymaster.storage.StorageUtil;
-import info.simplyapps.game.memorymaster.storage.StoreData;
 import info.simplyapps.gameengine.EngineConstants;
 import info.simplyapps.gameengine.RenderingSystem;
 import info.simplyapps.gameengine.engine.GameEngine;
@@ -144,12 +142,6 @@ public class HomeScreen extends HomeScreenTemplate {
 
     @Override
     public void doUpdateChecks() {
-        if (UpdateCheck.requiresCheck(StoreData.getInstance())) {
-            new UpdateCheck().execute(Constants.UPDATE_CHECK_URL);
-        }
-        if (UpdateCheck.requiresUpdate(StoreData.getInstance())) {
-            UpdateCheck.showRemindLaterDialog(this, getPackageName());
-        }
     }
 
     @Override
