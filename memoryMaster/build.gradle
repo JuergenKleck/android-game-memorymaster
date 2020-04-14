@@ -20,7 +20,7 @@ android {
         applicationId "info.simplyapps.game.memorymaster"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 11
+        versionCode 12
         versionName "1.4.0"
         signingConfig signingConfigs.release
     }
