@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Memory Master</string>
+
+  	<string name="btn_quit">Quit</string>
+  	<string name="btn_ok">OK</string>
+    <string name="btn_retry">Retry</string>
+    <string name="btn_reset">Reset</string>
+    <string name="error">Error</string>
+    <string name="errortext">An application error occurred. Please quit the game and try again.</string>
+    <string name="application_error">Application error: %1$s</string>
+
+    <string name="update_title">Update available</string>
+    <string name="update_text">Please update to the new version.</string>
+    <string name="check_title">Update check required</string>
+    <string name="check_text">Could not check for required updates. Please check your internet connectivity.</string>
+    
+    <string name="empty"></string>
+    <string name="statistic_highscore">Highscore:</string>
+    <string name="zero">0</string>
+    <string name="statistic_lastgame">Last Game:</string>
+    <string name="statistic_currentgame">Current Game:</string>
+
+    <string name="options">Options:</string>
+	<string name="option_statistic">Statistic</string>
+	
+	<string name="option_deck">Game deck</string>
+	<string name="option_screentitle_0">Animals</string>
+	<string name="option_screentitle_1">Fruits</string>
+	<string name="option_screentitle_2">Flowers</string>
+	<string name="option_screentitle_3">Star Signs</string>
+	<string name="option_screentitle_4">Colors</string>
+	<string name="option_screentitle_5">Alphabet</string>
+	<string name="option_screentitle_6">Signs</string>
+	
+	<string name="option_gamesize">Game size</string>
+	<string name="option_gamesize_3_2">3x2</string>
+	<string name="option_gamesize_4_2">4x2</string>
+	<string name="option_gamesize_4_3">4x3</string>
+	<string name="option_gamesize_4_4">4x4</string>
+	<string name="option_gamesize_5_4">5x4</string>
+	<string name="option_gamesize_6_4">6x4</string>
+	<string name="option_gamesize_7_4">7x4</string>
+	<string name="option_gamesize_done">Done</string>
+	<string name="option_gamesize_selected">Selected: {0}</string>
+	<string name="option_gamesize_max">Maximum: {0}</string>
+
+    <string name="menubutton_"></string>
+    <string name="menubutton_start">START</string>
+    <string name="menubutton_options">MENU</string>
+    <string name="menubutton_back">BACK</string>
+    <string name="menubutton_show_help">SHOW HELP</string>
+    <string name="menubutton_quit">EXIT</string>
+    <string name="menubutton_reset">RESET</string>
+    
+    <string name="menubutton_pause">PAUSE</string>
+    <string name="menubutton_resume">RESUME</string>
+    
+    <string name="message_"></string>
+    <string name="message_finished">FINISHED</string>
+    <string name="message_pause">PAUSE</string>
+    <string name="message_gameover">GAME OVER</string>
+    <string name="message_menu">MENU</string>
+    <string name="message_options">SETTINGS</string>
+    <string name="message_loading">LOADING</string>
+    
+    <string name="game_resetted">Current game resetted</string>
+    
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    
+</resources>

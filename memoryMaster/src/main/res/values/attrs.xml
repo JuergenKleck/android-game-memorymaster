@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="deck_basic_fruits">
+        <item>@drawable/deck_basic_fruits_0</item>
+    </array>
+    <array name="deck_basic_animals">
+        <item>@drawable/deck_basic_animals_0</item>
+    </array>
+    <array name="deck_more_flowers">
+        <item>@drawable/deck_more_flowers_0</item>
+    </array>
+    <array name="deck_more_starsigns">
+        <item>@drawable/deck_more_starsigns_0</item>
+    </array>
+    <array name="deck_kids_alphabet">
+        <item>@drawable/deck_kids_alphabet_0</item>
+    </array>
+    <array name="deck_kids_colors">
+        <item>@drawable/deck_kids_colors_0</item>
+    </array>
+    <array name="deck_kids_signs">
+        <item>@drawable/deck_kids_signs_0</item>
+    </array>
+    <array name="background_basic_fruits">
+        <item>@drawable/background_basic_fruits_0</item>
+    </array>
+    <array name="background_basic_animals">
+        <item>@drawable/background_basic_animals_0</item>
+    </array>
+    <array name="background_more_flowers">
+        <item>@drawable/background_more_flowers_0</item>
+    </array>
+    <array name="background_more_starsigns">
+        <item>@drawable/background_more_starsigns_0</item>
+    </array>
+    <array name="background_kids_alphabet">
+        <item>@drawable/background_kids_alphabet_0</item>
+        <item>@drawable/background_kids_alphabet_1</item>
+    </array>
+    <array name="background_kids_colors">
+        <item>@drawable/background_kids_colors_0</item>
+    </array>
+    <array name="background_kids_signs">
+        <item>@drawable/background_kids_signs_0</item>
+    </array>
+    <array name="card_basic_fruits">
+        <item>@drawable/card_basic_fruits_0</item>
+        <item>@drawable/card_basic_fruits_1</item>
+        <item>@drawable/card_basic_fruits_2</item>
+        <item>@drawable/card_basic_fruits_3</item>
+        <item>@drawable/card_basic_fruits_4</item>
+        <item>@drawable/card_basic_fruits_5</item>
+        <item>@drawable/card_basic_fruits_6</item>
+        <item>@drawable/card_basic_fruits_7</item>
+        <item>@drawable/card_basic_fruits_8</item>
+        <item>@drawable/card_basic_fruits_9</item>
+        <item>@drawable/card_basic_fruits_10</item>
+        <item>@drawable/card_basic_fruits_11</item>
+        <item>@drawable/card_basic_fruits_12</item>
+        <item>@drawable/card_basic_fruits_13</item>
+    </array>
+    <array name="card_basic_animals">
+        <item>@drawable/card_basic_animals_0</item>
+        <item>@drawable/card_basic_animals_1</item>
+        <item>@drawable/card_basic_animals_2</item>
+        <item>@drawable/card_basic_animals_3</item>
+        <item>@drawable/card_basic_animals_4</item>
+        <item>@drawable/card_basic_animals_5</item>
+        <item>@drawable/card_basic_animals_6</item>
+        <item>@drawable/card_basic_animals_7</item>
+        <item>@drawable/card_basic_animals_8</item>
+        <item>@drawable/card_basic_animals_9</item>
+        <item>@drawable/card_basic_animals_10</item>
+        <item>@drawable/card_basic_animals_11</item>
+        <item>@drawable/card_basic_animals_12</item>
+        <item>@drawable/card_basic_animals_13</item>
+        <item>@drawable/card_basic_animals_14</item>
+        <item>@drawable/card_basic_animals_15</item>
+    </array>
+    <array name="card_more_flowers">
+        <item>@drawable/card_more_flowers_0</item>
+        <item>@drawable/card_more_flowers_1</item>
+        <item>@drawable/card_more_flowers_2</item>
+        <item>@drawable/card_more_flowers_3</item>
+        <item>@drawable/card_more_flowers_4</item>
+        <item>@drawable/card_more_flowers_5</item>
+        <item>@drawable/card_more_flowers_6</item>
+        <item>@drawable/card_more_flowers_7</item>
+        <item>@drawable/card_more_flowers_8</item>
+        <item>@drawable/card_more_flowers_9</item>
+        <item>@drawable/card_more_flowers_10</item>
+        <item>@drawable/card_more_flowers_11</item>
+        <item>@drawable/card_more_flowers_12</item>
+    </array>
+    <array name="card_more_starsigns">
+        <item>@drawable/card_more_starsigns_0</item>
+        <item>@drawable/card_more_starsigns_1</item>
+        <item>@drawable/card_more_starsigns_2</item>
+        <item>@drawable/card_more_starsigns_3</item>
+        <item>@drawable/card_more_starsigns_4</item>
+        <item>@drawable/card_more_starsigns_5</item>
+        <item>@drawable/card_more_starsigns_6</item>
+        <item>@drawable/card_more_starsigns_7</item>
+        <item>@drawable/card_more_starsigns_8</item>
+        <item>@drawable/card_more_starsigns_9</item>
+        <item>@drawable/card_more_starsigns_10</item>
+        <item>@drawable/card_more_starsigns_11</item>
+    </array>
+    <array name="card_kids_alphabet">
+        <item>@drawable/card_kids_alphabet_0</item>
+		<item>@drawable/card_kids_alphabet_1</item>
+		<item>@drawable/card_kids_alphabet_2</item>
+		<item>@drawable/card_kids_alphabet_3</item>
+		<item>@drawable/card_kids_alphabet_4</item>
+		<item>@drawable/card_kids_alphabet_5</item>
+		<item>@drawable/card_kids_alphabet_6</item>
+		<item>@drawable/card_kids_alphabet_7</item>
+		<item>@drawable/card_kids_alphabet_8</item>
+		<item>@drawable/card_kids_alphabet_9</item>
+		<item>@drawable/card_kids_alphabet_10</item>
+		<item>@drawable/card_kids_alphabet_11</item>
+		<item>@drawable/card_kids_alphabet_12</item>
+		<item>@drawable/card_kids_alphabet_13</item>
+		<item>@drawable/card_kids_alphabet_14</item>
+		<item>@drawable/card_kids_alphabet_15</item>
+		<item>@drawable/card_kids_alphabet_16</item>
+		<item>@drawable/card_kids_alphabet_17</item>
+		<item>@drawable/card_kids_alphabet_18</item>
+		<item>@drawable/card_kids_alphabet_19</item>
+		<item>@drawable/card_kids_alphabet_20</item>
+		<item>@drawable/card_kids_alphabet_21</item>
+		<item>@drawable/card_kids_alphabet_22</item>
+		<item>@drawable/card_kids_alphabet_23</item>
+		<item>@drawable/card_kids_alphabet_24</item>
+		<item>@drawable/card_kids_alphabet_25</item>
+		<item>@drawable/card_kids_alphabet_26</item>
+		<item>@drawable/card_kids_alphabet_27</item>
+		<item>@drawable/card_kids_alphabet_28</item>
+		<item>@drawable/card_kids_alphabet_29</item>
+		<item>@drawable/card_kids_alphabet_30</item>
+		<item>@drawable/card_kids_alphabet_31</item>
+		<item>@drawable/card_kids_alphabet_32</item>
+		<item>@drawable/card_kids_alphabet_33</item>
+		<item>@drawable/card_kids_alphabet_34</item>
+		<item>@drawable/card_kids_alphabet_35</item>
+    </array>
+    <array name="card_kids_colors">
+        <item>@drawable/card_kids_colors_0</item>
+        <item>@drawable/card_kids_colors_1</item>
+        <item>@drawable/card_kids_colors_2</item>
+        <item>@drawable/card_kids_colors_3</item>
+        <item>@drawable/card_kids_colors_4</item>
+        <item>@drawable/card_kids_colors_5</item>
+        <item>@drawable/card_kids_colors_6</item>
+        <item>@drawable/card_kids_colors_7</item>
+        <item>@drawable/card_kids_colors_8</item>
+        <item>@drawable/card_kids_colors_9</item>
+        <item>@drawable/card_kids_colors_10</item>
+        <item>@drawable/card_kids_colors_11</item>
+    </array>
+    <array name="card_kids_signs">
+        <item>@drawable/card_kids_signs_0</item>
+        <item>@drawable/card_kids_signs_1</item>
+        <item>@drawable/card_kids_signs_2</item>
+        <item>@drawable/card_kids_signs_3</item>
+        <item>@drawable/card_kids_signs_4</item>
+        <item>@drawable/card_kids_signs_5</item>
+        <item>@drawable/card_kids_signs_6</item>
+        <item>@drawable/card_kids_signs_7</item>
+        <item>@drawable/card_kids_signs_8</item>
+        <item>@drawable/card_kids_signs_9</item>
+        <item>@drawable/card_kids_signs_10</item>
+        <item>@drawable/card_kids_signs_11</item>
+    </array>
+</resources>
