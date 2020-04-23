@@ -11,11 +11,5 @@
         android:layout_height="fill_parent" 
         simplyapps:screenScale="80"
         simplyapps:orientation="false" />
-	
-    <RelativeLayout
-        android:id="@+id/adBannerRelativeLayout"
-        android:layout_gravity="bottom|right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-	
+
 </FrameLayout>
