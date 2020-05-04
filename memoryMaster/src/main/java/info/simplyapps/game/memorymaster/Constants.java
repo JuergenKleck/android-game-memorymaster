@@ -12,7 +12,6 @@ public class Constants {
     public static final String PACKAGE_NAME = "info.simplyapps.game.memorymaster";
     public static final String PREFERENCE_NS = "http://info.simplyapps.game.memorymaster.rendering";
 
-    public static final int ACTION_STATISTIC = 100;
     public static final int ACTION_RESUME = 202;
     public static final int ACTION_HOME = 300;
 

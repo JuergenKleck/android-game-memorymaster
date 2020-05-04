@@ -1,7 +1,6 @@
 package info.simplyapps.game.memorymaster.screens;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
@@ -14,7 +13,6 @@ import info.simplyapps.game.memorymaster.rendering.GameRenderer;
 import info.simplyapps.game.memorymaster.rendering.HomeRenderer;
 import info.simplyapps.game.memorymaster.rendering.LoadingRenderer;
 import info.simplyapps.game.memorymaster.rendering.OptionRenderer;
-import info.simplyapps.game.memorymaster.rendering.StatisticRenderer;
 import info.simplyapps.game.memorymaster.storage.StorageUtil;
 import info.simplyapps.gameengine.EngineConstants;
 import info.simplyapps.gameengine.RenderingSystem;
@@ -90,21 +88,10 @@ public class HomeScreen extends HomeScreenTemplate {
             case Constants.ACTION_HOME:
                 actionHome();
                 break;
-            case Constants.ACTION_STATISTIC:
-                actionStatistic();
-                break;
             case Constants.ACTION_RESUME:
                 actionResume();
                 break;
         }
-    }
-
-    public int getScreenScale() {
-        return getScreenView().getScreenScaleValue();
-    }
-
-    public void actionStatistic() {
-        getScreenView().changeEngine(new StatisticRenderer(this, getEngineProperties()));
     }
 
     public void actionHome() {
@@ -164,11 +151,6 @@ public class HomeScreen extends HomeScreenTemplate {
      */
     public GameEngine getGameEngine() {
         return GameEngine.class.isInstance(mScreenView.getBasicEngine()) ? GameEngine.class.cast(mScreenView.getBasicEngine()) : null;
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 
     @Override

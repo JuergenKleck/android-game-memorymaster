@@ -1,5 +1,6 @@
 package info.simplyapps.game.memorymaster.sprites;
 
+import android.graphics.LightingColorFilter;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
@@ -13,6 +14,11 @@ public class HomeViewSprites implements ViewSprites {
     public Graphic gLogo;
     public Paint pBackground;
     public Rect rBackground;
+
+    public LightingColorFilter[] cfBackground;
+    public int[] indicesBackground;
+    public Rect[] rBackgrounds;
+    public LightingColorFilter cfOptions;
 
     public Rect rMessage;
 
