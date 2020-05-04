@@ -2,9 +2,18 @@ package info.simplyapps.game.memorymaster.rendering;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.LightingColorFilter;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Shader;
 import android.view.MotionEvent;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 
 import info.simplyapps.game.memorymaster.R;
 import info.simplyapps.game.memorymaster.rendering.kits.Renderkit;
@@ -15,7 +24,13 @@ import info.simplyapps.gameengine.rendering.kits.ScreenKit.ScreenPosition;
 
 public class HomeRenderer extends MemoryRendererTemplate {
 
-    long lastTime = 0l;
+    long lastTime = 0L;
+    int colorIdx = 0;
+    Random rand;
+    final long moveTime = 500L;
+    final float fluctuationMin = 0.25f;
+    final float fluctuationMax = 1.0f;
+    long lastMove = 0L;
 
     public HomeRenderer(Context context, Properties p) {
         super(context, p);
@@ -70,19 +85,44 @@ public class HomeRenderer extends MemoryRendererTemplate {
     public void doUpdateRenderState() {
         final long time = System.currentTimeMillis();
 
+        if (lastMove < time) {
+            for (int i = 0; i < getSprites().indicesBackground.length; i++) {
+                colorIdx++;
+                if (colorIdx + 1 >= getSprites().cfBackground.length) {
+                    colorIdx = 0;
+                }
+                getSprites().indicesBackground[i] = colorIdx;
+            }
+
+            float fluctuation = rand.nextFloat();
+            while (fluctuation < fluctuationMin || fluctuation > fluctuationMax) {
+                fluctuation = rand.nextFloat();
+            }
+
+
+            lastMove = time + Float.valueOf(moveTime * fluctuation).longValue();
+        }
+
         lastTime = time;
     }
 
     @Override
     public void doDrawRenderer(Canvas canvas) {
 
-//        final long time = System.currentTimeMillis();
+        //final long time = System.currentTimeMillis();
 
         if (getSprites().pBackground != null) {
             canvas.drawRect(getSprites().rBackground, getSprites().pBackground);
         }
-        if (getSprites().gBackground != null) {
-            getSprites().gBackground.image.draw(canvas);
+        if (getSprites().gBackground != null && getSprites().rBackgrounds != null) {
+            for (int i = 0; i < getSprites().rBackgrounds.length; i++) {
+                Rect r = getSprites().rBackgrounds[i];
+                if (getSprites().cfBackground != null) {
+                    getSprites().gBackground.image.setColorFilter(getSprites().cfBackground[getSprites().indicesBackground[i]]);
+                }
+                getSprites().gBackground.image.setBounds(r);
+                getSprites().gBackground.image.draw(canvas);
+            }
         }
 
 
@@ -115,13 +155,64 @@ public class HomeRenderer extends MemoryRendererTemplate {
     public void doInitThread(long time) {
         super.sprites = new HomeViewSprites();
 
-        getSprites().gBackground = loadGraphic(R.drawable.background);
-        getSprites().gBackground.image.setBounds(0, 0, screenWidth, realScreenHeight);
+        rand = new Random();
+        lastMove = 0L;
 
-//        Shader shader = new LinearGradient(0, 0, 0, realScreenHeight, Color.parseColor("#2dd0f4"), Color.parseColor("#19bff8"), TileMode.CLAMP);
-//        getSprites().pBackground = new Paint(); 
-//        getSprites().pBackground.setShader(shader);
-//        getSprites().rBackground = new Rect(0, 0, screenWidth, realScreenHeight);
+        getSprites().gBackground = loadGraphic(R.drawable.background_2);
+//        getSprites().gBackground.image.setBounds(0, 0, screenWidth, realScreenHeight);
+
+        // random amount of color filters
+        int max = rand.nextInt(30);
+        while (max < 10) {
+            max = rand.nextInt(30);
+        }
+        getSprites().cfBackground = new LightingColorFilter[max];
+        for (int i = 0; i < max; i++) {
+            getSprites().cfBackground[i] = new LightingColorFilter(generateColor(), generateColor());
+        }
+
+        Shader shader = new LinearGradient(0, 0, 0, realScreenHeight, Color.parseColor("#2dd0f4"), Color.parseColor("#19bff8"), Shader.TileMode.CLAMP);
+        getSprites().pBackground = new Paint();
+        getSprites().pBackground.setShader(shader);
+        getSprites().rBackground = new Rect(0, 0, screenWidth, realScreenHeight);
+
+        // calculate the rectangles only once at the beginning, cpu > memory
+        int totalRects = 0;
+        List<Rect> rects = new ArrayList<>();
+        if (getSprites().gBackground != null) {
+            // draw image across screen
+            int shift = 0;
+            int h = 0;
+            int v = 0;
+            Rect r = getSprites().gBackground.image.copyBounds();
+
+            shift -= Float.valueOf(r.width() * 0.3f).intValue();
+            h = shift;
+            r.offsetTo(h, v);
+            rects.add(r);
+            totalRects++;
+            while (h < screenWidth && v - r.height() < screenHeight) {
+                r = new Rect(r);
+                h = r.right - Float.valueOf(r.width() * 0.2f).intValue();
+                if (h > screenWidth) {
+                    v = r.bottom;
+                    shift -= Float.valueOf(r.width() * 0.3f).intValue();
+                    h = shift;
+                }
+                r.offsetTo(h, v);
+                if (v - r.height() > screenHeight) {
+                    r.offsetTo(0, 0);
+                    break;
+                }
+                rects.add(r);
+                totalRects++;
+            }
+        }
+        getSprites().indicesBackground = new int[totalRects];
+        for (int i = 0; i < getSprites().indicesBackground.length; i++) {
+            getSprites().indicesBackground[i] = 0;
+        }
+        getSprites().rBackgrounds = rects.toArray(new Rect[]{});
 
         // button backgrounds
 //        getSprites().gButton = Renderkit.loadButtonGraphic(mContext.getResources(), R.drawable.button_background, 0, 0, EngineConstants.ACTION_NONE);
@@ -151,5 +242,12 @@ public class HomeRenderer extends MemoryRendererTemplate {
 
     }
 
+    private int generateColor() {
+        int red = rand.nextInt(255);
+        int green = rand.nextInt(255);
+        int blue = rand.nextInt(255);
+        int alpha = rand.nextInt(255);
+        return Color.argb(alpha, red, green, blue);
+    }
 
 }

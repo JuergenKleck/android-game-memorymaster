@@ -3,11 +3,18 @@ package info.simplyapps.game.memorymaster.rendering;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.LightingColorFilter;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Shader;
 import android.view.MotionEvent;
 import android.widget.Toast;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import info.simplyapps.game.memorymaster.Constants;
@@ -183,13 +190,18 @@ public class OptionRenderer extends MemoryRendererTemplate {
     @Override
     public void doDrawRenderer(Canvas canvas) {
 
-
         if (getSprites().pBackground != null) {
             canvas.drawRect(getSprites().rBackground, getSprites().pBackground);
         }
-        if (getSprites().gBackground != null) {
-            getSprites().gBackground.image.draw(canvas);
+        if (getSprites().gBackground != null && getSprites().rBackgrounds != null) {
+            for (int i = 0; i < getSprites().rBackgrounds.length; i++) {
+                Rect r = getSprites().rBackgrounds[i];
+                getSprites().gBackground.image.setColorFilter(getSprites().cfOptions);
+                getSprites().gBackground.image.setBounds(r);
+                getSprites().gBackground.image.draw(canvas);
+            }
         }
+
 
         switch (mSubMode) {
             case DECK:
@@ -284,8 +296,48 @@ public class OptionRenderer extends MemoryRendererTemplate {
     public void doInitThread(long time) {
         super.sprites = new HomeViewSprites();
 
-        getSprites().gBackground = loadGraphic(R.drawable.background);
-        getSprites().gBackground.image.setBounds(0, 0, screenWidth, realScreenHeight);
+        getSprites().gBackground = loadGraphic(R.drawable.background_2);
+
+        Shader shader = new LinearGradient(0, 0, 0, realScreenHeight, Color.parseColor("#2dd0f4"), Color.parseColor("#19bff8"), Shader.TileMode.CLAMP);
+        getSprites().pBackground = new Paint();
+        getSprites().pBackground.setShader(shader);
+        getSprites().rBackground = new Rect(0, 0, screenWidth, realScreenHeight);
+
+        getSprites().cfOptions = new LightingColorFilter(Color.argb(0, 199, 194, 0), Color.argb(0, 150, 150, 150));
+
+        // calculate the rectangles only once at the beginning, cpu > memory
+        int totalRects = 0;
+        List<Rect> rects = new ArrayList<>();
+        if (getSprites().gBackground != null) {
+            // draw image across screen
+            int shift = 0;
+            int h = 0;
+            int v = 0;
+            Rect r = getSprites().gBackground.image.copyBounds();
+
+            shift -= Float.valueOf(r.width() * 0.3f).intValue();
+            h = shift;
+            r.offsetTo(h, v);
+            rects.add(r);
+            totalRects++;
+            while (h < screenWidth && v - r.height() < screenHeight) {
+                r = new Rect(r);
+                h = r.right - Float.valueOf(r.width() * 0.2f).intValue();
+                if (h > screenWidth) {
+                    v = r.bottom;
+                    shift -= Float.valueOf(r.width() * 0.3f).intValue();
+                    h = shift;
+                }
+                r.offsetTo(h, v);
+                if (v - r.height() > screenHeight) {
+                    r.offsetTo(0, 0);
+                    break;
+                }
+                rects.add(r);
+                totalRects++;
+            }
+        }
+        getSprites().rBackgrounds = rects.toArray(new Rect[]{});
 
         // button backgrounds
         getSprites().gButton = Renderkit.loadButtonGraphic(mContext.getResources(), R.drawable.button_background, 0, 0, EngineConstants.ACTION_NONE);
